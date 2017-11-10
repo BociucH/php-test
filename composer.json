@@ -1,0 +1,19 @@
+{
+    "name": "root/php-test",
+    "authors": [
+        {
+            "name": "Dominik Gasior",
+            "email": "dominik.gasior@valueadd.pl"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^1.22",
+        "symfony/http-foundation": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\": "src/",
+            "App\\": "app/"
+        }
+    }
+}
