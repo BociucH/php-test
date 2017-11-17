@@ -5,21 +5,20 @@ namespace Core\Routing;
 
 
 use ArrayIterator;
-use Traversable;
 
 class RouteCollection implements \IteratorAggregate
 {
     /**
      * @var Route[]
      */
-    private $items;
+    private $routes;
 
     /**
      * @param Route $route
      */
     public function add(Route $route): void
     {
-        $this->items[$route->getName()] = $route;
+        $this->routes[$route->getName()] = $route;
     }
 
     /**
@@ -29,7 +28,7 @@ class RouteCollection implements \IteratorAggregate
      */
     public function get(string $routeName): ?Route
     {
-        return array_key_exists($routeName, $this->items) ? $this->items[$routeName] : null;
+        return array_key_exists($routeName, $this->routes) ? $this->routes[$routeName] : null;
     }
 
     /**
@@ -37,6 +36,6 @@ class RouteCollection implements \IteratorAggregate
      */
     public function getIterator(): ArrayIterator
     {
-        return new ArrayIterator($this->items);
+        return new ArrayIterator($this->routes);
     }
 }

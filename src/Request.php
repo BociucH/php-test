@@ -46,10 +46,10 @@ class Request
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getPathInfo(): ?string
+    public function getPathInfo(): string
     {
-        return $this->server['PATH_INFO'] ?? null;
+        return $this->server['PATH_INFO'] ?? '/';
     }
 }

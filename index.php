@@ -9,8 +9,8 @@ require_once 'vendor/autoload.php';
 
 //$app = new \Core\Boot(\Core\Request::create());
 
-//$request = \Core\Request::create();
-//$path = $request->getPathInfo();
+$request = \Core\Request::create();
+$path = $request->getPathInfo();
 
 //$request = \Symfony\Component\HttpFoundation\Request::createFromGlobals();
 //$path = $request->getPathInfo();
@@ -23,6 +23,8 @@ $routes->add(
         new Config('TestController', 'test')
     )
 );
-$router = new Router($routes);
 
-return;
+$router = new Router($routes, $path);
+$route = $router->boot();
+
+echo $route->getName();
